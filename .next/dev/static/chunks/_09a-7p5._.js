@@ -1077,66 +1077,387 @@ _c5 = ContentSlide;
                 lineNumber: 264,
                 columnNumber: 7
             }, this),
-            slide.highlight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "highlight-box",
-                style: {
-                    borderLeftColor: 'var(--clr-accent3)',
-                    background: 'linear-gradient(135deg,rgba(29,211,176,0.10),rgba(34,211,238,0.06))'
-                },
-                children: slide.highlight
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fc-container",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "fc-grid",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node rect",
+                            style: {
+                                gridColumn: 1,
+                                gridRow: 1
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "fc-floating-input-label",
+                                    children: "Input"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 270,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "fc-node-title",
+                                    children: "Image"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 271,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 269,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-arrow right",
+                            style: {
+                                gridColumn: 2,
+                                gridRow: 1
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "fc-label",
+                                    children: "preprocessing on the image"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 274,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "fc-arrow-line"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 275,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 273,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node rect",
+                            style: {
+                                gridColumn: 3,
+                                gridRow: 1
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-node-title",
+                                children: [
+                                    "Preprocessed",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                        fileName: "[project]/src/components/Slide.tsx",
+                                        lineNumber: 278,
+                                        columnNumber: 56
+                                    }, this),
+                                    "Image"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 278,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 277,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-arrow right",
+                            style: {
+                                gridColumn: 4,
+                                gridRow: 1
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "fc-label",
+                                    style: {
+                                        whiteSpace: 'normal',
+                                        lineHeight: 1.2,
+                                        top: 'calc(50% - 2rem)'
+                                    },
+                                    children: [
+                                        "it goes to OCR engine",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/src/components/Slide.tsx",
+                                            lineNumber: 281,
+                                            columnNumber: 136
+                                        }, this),
+                                        "for text extraction"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 281,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "fc-arrow-line"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 282,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 280,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node ellipse",
+                            style: {
+                                gridColumn: 5,
+                                gridRow: 1
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-node-title",
+                                style: {
+                                    fontSize: '0.95rem'
+                                },
+                                children: [
+                                    "EasyOCR",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                        fileName: "[project]/src/components/Slide.tsx",
+                                        lineNumber: 285,
+                                        columnNumber: 83
+                                    }, this),
+                                    "or",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                        fileName: "[project]/src/components/Slide.tsx",
+                                        lineNumber: 285,
+                                        columnNumber: 91
+                                    }, this),
+                                    "PaddleOCR"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 285,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 284,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-arrow down",
+                            style: {
+                                gridColumn: 5,
+                                gridRow: 2
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "fc-label",
+                                    children: [
+                                        "Translate the dishes",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/src/components/Slide.tsx",
+                                            lineNumber: 290,
+                                            columnNumber: 60
+                                        }, this),
+                                        "into user specific language"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 290,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "fc-arrow-line"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 291,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 289,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node rect",
+                            style: {
+                                gridColumn: 1,
+                                gridRow: 3
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-node-title",
+                                children: "User preference"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 296,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 295,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-arrow right",
+                            style: {
+                                gridColumn: 2,
+                                gridRow: 3
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-arrow-line"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 299,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 298,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node ellipse",
+                            style: {
+                                gridColumn: 3,
+                                gridRow: 3,
+                                height: '140px',
+                                width: '200px'
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-node-title",
+                                style: {
+                                    fontSize: '1rem'
+                                },
+                                children: "Google Gemini API"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 302,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 301,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-arrow left",
+                            style: {
+                                gridColumn: 4,
+                                gridRow: 3
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-arrow-line"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 305,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 304,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node rect",
+                            style: {
+                                gridColumn: 5,
+                                gridRow: 3,
+                                alignItems: 'flex-start',
+                                paddingLeft: '1.5rem'
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "fc-node-title",
+                                    children: "Translated Dish name"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 308,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "fc-node-list",
+                                    children: [
+                                        "1.",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/src/components/Slide.tsx",
+                                            lineNumber: 310,
+                                            columnNumber: 17
+                                        }, this),
+                                        "2.",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/src/components/Slide.tsx",
+                                            lineNumber: 311,
+                                            columnNumber: 17
+                                        }, this),
+                                        "3.",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/src/components/Slide.tsx",
+                                            lineNumber: 312,
+                                            columnNumber: 17
+                                        }, this),
+                                        "."
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/Slide.tsx",
+                                    lineNumber: 309,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 307,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-arrow down",
+                            style: {
+                                gridColumn: 3,
+                                gridRow: 4
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-arrow-line"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 319,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 318,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "fc-node rect",
+                            style: {
+                                gridColumn: '2 / 5',
+                                gridRow: 5,
+                                padding: '1.2rem',
+                                margin: '0 auto',
+                                maxWidth: '360px'
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fc-node-title",
+                                children: "Recomended Dishes and Generate Images"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Slide.tsx",
+                                lineNumber: 324,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Slide.tsx",
+                            lineNumber: 323,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/Slide.tsx",
+                    lineNumber: 267,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
                 lineNumber: 266,
-                columnNumber: 9
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "divider"
-            }, void 0, false, {
-                fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 270,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "pipeline",
-                children: slide.content?.map((step, i)=>{
-                    const parts = step.split(' — ');
-                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "pipeline-step",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "step-num",
-                                children: String(i + 1).padStart(2, '0')
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 276,
-                                columnNumber: 15
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "step-label",
-                                children: parts[0]
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 277,
-                                columnNumber: 15
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "step-desc",
-                                children: parts[1]
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 278,
-                                columnNumber: 15
-                            }, this)
-                        ]
-                    }, i, true, {
-                        fileName: "[project]/src/components/Slide.tsx",
-                        lineNumber: 275,
-                        columnNumber: 13
-                    }, this);
-                })
-            }, void 0, false, {
-                fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 271,
                 columnNumber: 7
             }, this)
         ]
@@ -1155,7 +1476,7 @@ _c6 = ArchitectureSlide;
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 291,
+                lineNumber: 336,
                 columnNumber: 21
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1163,14 +1484,14 @@ _c6 = ArchitectureSlide;
                 children: slide.title
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 292,
+                lineNumber: 337,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "divider"
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 293,
+                lineNumber: 338,
                 columnNumber: 7
             }, this),
             slide.highlight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1178,7 +1499,7 @@ _c6 = ArchitectureSlide;
                 children: slide.highlight
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 295,
+                lineNumber: 340,
                 columnNumber: 9
             }, this),
             slide.columns ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1194,7 +1515,7 @@ _c6 = ArchitectureSlide;
                                 children: col.heading
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 301,
+                                lineNumber: 346,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1202,23 +1523,23 @@ _c6 = ArchitectureSlide;
                                         children: item
                                     }, ii, false, {
                                         fileName: "[project]/src/components/Slide.tsx",
-                                        lineNumber: 304,
+                                        lineNumber: 349,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 302,
+                                lineNumber: 347,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, ci, true, {
                         fileName: "[project]/src/components/Slide.tsx",
-                        lineNumber: 300,
+                        lineNumber: 345,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 298,
+                lineNumber: 343,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                 className: "bullet-list",
@@ -1226,12 +1547,12 @@ _c6 = ArchitectureSlide;
                         children: item
                     }, i, false, {
                         fileName: "[project]/src/components/Slide.tsx",
-                        lineNumber: 312,
+                        lineNumber: 357,
                         columnNumber: 44
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 311,
+                lineNumber: 356,
                 columnNumber: 9
             }, this)
         ]
@@ -1282,7 +1603,7 @@ function ResultsSlide({ slide }) {
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 332,
+                lineNumber: 377,
                 columnNumber: 21
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1290,14 +1611,14 @@ function ResultsSlide({ slide }) {
                 children: slide.title
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 333,
+                lineNumber: 378,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "divider"
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 334,
+                lineNumber: 379,
                 columnNumber: 7
             }, this),
             slide.highlight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1305,7 +1626,7 @@ function ResultsSlide({ slide }) {
                 children: slide.highlight
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 335,
+                lineNumber: 380,
                 columnNumber: 27
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1318,7 +1639,7 @@ function ResultsSlide({ slide }) {
                                 children: r.label
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 339,
+                                lineNumber: 384,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1326,7 +1647,7 @@ function ResultsSlide({ slide }) {
                                 children: r.value
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 340,
+                                lineNumber: 385,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1334,18 +1655,18 @@ function ResultsSlide({ slide }) {
                                 children: r.detail
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 341,
+                                lineNumber: 386,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/components/Slide.tsx",
-                        lineNumber: 338,
+                        lineNumber: 383,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 336,
+                lineNumber: 381,
                 columnNumber: 7
             }, this)
         ]
@@ -1364,7 +1685,7 @@ _c8 = ResultsSlide;
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 353,
+                lineNumber: 398,
                 columnNumber: 21
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1372,14 +1693,14 @@ _c8 = ResultsSlide;
                 children: slide.title
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 354,
+                lineNumber: 399,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "divider"
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 355,
+                lineNumber: 400,
                 columnNumber: 7
             }, this),
             slide.highlight && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1387,7 +1708,7 @@ _c8 = ResultsSlide;
                 children: slide.highlight
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 356,
+                lineNumber: 401,
                 columnNumber: 27
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1405,7 +1726,7 @@ _c8 = ResultsSlide;
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 362,
+                                lineNumber: 407,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1418,26 +1739,26 @@ _c8 = ResultsSlide;
                                         children: parts[0].replace(/Step \d+ — /, '')
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Slide.tsx",
-                                        lineNumber: 364,
+                                        lineNumber: 409,
                                         columnNumber: 17
                                     }, this),
                                     parts[1] ? ` — ${parts[1]}` : ''
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Slide.tsx",
-                                lineNumber: 363,
+                                lineNumber: 408,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/components/Slide.tsx",
-                        lineNumber: 361,
+                        lineNumber: 406,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 357,
+                lineNumber: 402,
                 columnNumber: 7
             }, this)
         ]
@@ -1460,7 +1781,7 @@ _c9 = DemoSlide;
                 children: slide.icon
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 379,
+                lineNumber: 424,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1471,7 +1792,7 @@ _c9 = DemoSlide;
                 children: slide.title
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 380,
+                lineNumber: 425,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1479,7 +1800,7 @@ _c9 = DemoSlide;
                 children: slide.subtitle
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 381,
+                lineNumber: 426,
                 columnNumber: 7
             }, this),
             slide.tag && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1493,7 +1814,7 @@ _c9 = DemoSlide;
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 383,
+                lineNumber: 428,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1508,18 +1829,18 @@ _c9 = DemoSlide;
                         ]
                     }, i, true, {
                         fileName: "[project]/src/components/Slide.tsx",
-                        lineNumber: 387,
+                        lineNumber: 432,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/Slide.tsx",
-                lineNumber: 385,
+                lineNumber: 430,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Slide.tsx",
-        lineNumber: 378,
+        lineNumber: 423,
         columnNumber: 5
     }, this);
 }

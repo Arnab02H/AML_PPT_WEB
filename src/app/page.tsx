@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { slides } from '@/data/slides';
 import Slide from '@/components/Slide';
-import NavBar from '@/components/NavBar';
 import ProgressDots from '@/components/ProgressDots';
 
 export default function PresentationPage() {
@@ -55,6 +54,19 @@ export default function PresentationPage() {
     touchStartX.current = null;
   };
 
+  /* ── Keyboard navigation ─────────────────────── */
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrev();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleNext, handlePrev]);
+
   const urlPath = `linguineai-slides/fullscreen#/${current}`;
 
   if (!isMounted) return null;
@@ -82,13 +94,6 @@ export default function PresentationPage() {
         ))}
       </main>
 
-      {/* Navigation */}
-      <NavBar
-        current={current}
-        total={slides.length}
-        onPrev={handlePrev}
-        onNext={handleNext}
-      />
     </>
   );
 }

@@ -1075,6 +1075,225 @@ kbd {
     bottom: 4rem;
     right: 1.5rem;
   }
+
+  .fc-container {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .fc-grid {
+    min-width: 800px;
+  }
+}
+
+.fc-container {
+  background: #0003;
+  border: 1px solid #ffffff26;
+  border-radius: 16px;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  margin-top: .5rem;
+  padding: 2rem;
+  display: flex;
+}
+
+.fc-grid {
+  grid-template-rows: auto minmax(30px, auto) auto minmax(30px, auto) auto;
+  grid-template-columns: minmax(60px, 1fr) minmax(30px, .5fr) minmax(80px, 1.2fr) minmax(30px, .5fr) minmax(80px, 1.2fr);
+  place-items: center;
+  gap: 0;
+  width: 100%;
+  display: grid;
+}
+
+.architecture-split {
+  flex: 1;
+  align-items: stretch;
+  gap: 1.5rem;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+}
+
+.arch-col {
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+.arch-col-title {
+  color: var(--clr-accent2);
+  text-align: center;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.fc-node {
+  color: #f1f5f9;
+  text-align: center;
+  z-index: 2;
+  background: #11182799;
+  border: 1px solid #ffffff4d;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+  padding: .75rem;
+  font-weight: 500;
+  transition: border-color .2s, box-shadow .2s;
+  display: flex;
+  position: relative;
+  box-shadow: 0 4px 12px #0003;
+}
+
+.fc-node.rect {
+  border-radius: 12px;
+}
+
+.fc-node.ellipse {
+  border-radius: 50%;
+  min-width: 110px;
+  height: auto;
+  padding: 1.25rem .5rem;
+}
+
+.fc-node-title {
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fc-node-list {
+  text-align: left;
+  color: #cbd5e1;
+  width: 100%;
+  margin-top: .4rem;
+  font-size: .7rem;
+  line-height: 1.2;
+}
+
+.fc-label {
+  font-family: var(--font-main);
+  color: #94a3b8;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 3;
+  font-size: .65rem;
+  font-style: italic;
+  line-height: 1.2;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fc-arrow {
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.fc-arrow-line {
+  background: #fff6;
+  position: absolute;
+}
+
+.fc-arrow.right .fc-arrow-line {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.fc-arrow.right:after {
+  content: "";
+  border-top: 2px solid #fff6;
+  border-right: 2px solid #fff6;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%)rotate(45deg);
+}
+
+.fc-arrow.left .fc-arrow-line {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.fc-arrow.left:after {
+  content: "";
+  border-top: 2px solid #fff6;
+  border-right: 2px solid #fff6;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%)rotate(-135deg);
+}
+
+.fc-arrow.down .fc-arrow-line {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+.fc-arrow.down:after {
+  content: "";
+  border-top: 2px solid #fff6;
+  border-right: 2px solid #fff6;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%)rotate(135deg);
+}
+
+.fc-label {
+  font-family: var(--font-main);
+  color: #94a3b8;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  width: 100%;
+  font-size: .72rem;
+  font-style: italic;
+  position: absolute;
+}
+
+.fc-arrow.right .fc-label, .fc-arrow.left .fc-label {
+  top: calc(50% - 1.6rem);
+}
+
+.fc-arrow.down .fc-label {
+  text-align: right;
+  width: max-content;
+  top: 50%;
+  right: calc(50% + .5rem);
+  transform: translateY(-50%);
+}
+
+.fc-floating-input-label {
+  color: #cbd5e1;
+  font-size: .8rem;
+  font-style: italic;
+  position: absolute;
+  top: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /*# sourceMappingURL=src_styles_globals_0c8m6fs.css.map*/

@@ -262,23 +262,113 @@ function ArchitectureSlide({ slide }: { slide: SlideData }) {
     <>
       {slide.tag && <div className="slide-tag">🏗️ {slide.tag}</div>}
       <h2 className="slide-title teal">{slide.title}</h2>
-      {slide.highlight && (
-        <div className="highlight-box" style={{ borderLeftColor: 'var(--clr-accent3)', background: 'linear-gradient(135deg,rgba(29,211,176,0.10),rgba(34,211,238,0.06))' }}>
-          {slide.highlight}
-        </div>
-      )}
-      <div className="divider" />
-      <div className="pipeline">
-        {slide.content?.map((step, i) => {
-          const parts = step.split(' — ');
-          return (
-            <div key={i} className="pipeline-step">
-              <span className="step-num">{String(i + 1).padStart(2,'0')}</span>
-              <span className="step-label">{parts[0]}</span>
-              <span className="step-desc">{parts[1]}</span>
+      
+      <div className="architecture-split">
+        {/* COLUMN 1: OCR Pipeline */}
+        <div className="arch-col">
+          <h3 className="arch-col-title">OCR Model Pipeline</h3>
+          <div className="fc-container" style={{ padding: '1rem', marginTop: 0 }}>
+            <div className="fc-grid">
+              {/* ROW 1 */}
+              <div className="fc-node rect" style={{ gridColumn: 1, gridRow: 1 }}>
+                <span className="fc-floating-input-label">Input</span>
+                <div className="fc-node-title">Image</div>
+              </div>
+              <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 1 }}>
+                <span className="fc-label" style={{ top: '-1.8rem', whiteSpace: 'normal', width: '80px', lineHeight: 1.1 }}>preprocessing<br/>on the image</span>
+                <div className="fc-arrow-line"></div>
+              </div>
+              <div className="fc-node rect" style={{ gridColumn: 3, gridRow: 1 }}>
+                <div className="fc-node-title">Preprocessed<br />Image</div>
+              </div>
+              <div className="fc-arrow right" style={{ gridColumn: 4, gridRow: 1 }}>
+                <span className="fc-label" style={{ top: '-2.4rem', whiteSpace: 'normal', width: '80px', lineHeight: 1.1 }}>it goes to<br/>OCR engine<br/>for text extraction</span>
+                <div className="fc-arrow-line"></div>
+              </div>
+              <div className="fc-node ellipse" style={{ gridColumn: 5, gridRow: 1 }}>
+                <div className="fc-node-title" style={{ fontSize: '0.8rem' }}>EasyOCR<br />or<br />PaddleOCR</div>
+              </div>
+
+              {/* ROW 2 */}
+              <div className="fc-arrow down" style={{ gridColumn: 5, gridRow: 2 }}>
+                <span className="fc-label" style={{ left: 'auto', right: 'calc(50% + 0.5rem)', transform: 'translateY(-50%)', top: '50%' }}>Translate the dishes<br />into user specific language</span>
+                <div className="fc-arrow-line"></div>
+              </div>
+
+              {/* ROW 3 */}
+              <div className="fc-node rect" style={{ gridColumn: 1, gridRow: 3 }}>
+                <div className="fc-node-title">User preference</div>
+              </div>
+              <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 3 }}>
+                <div className="fc-arrow-line"></div>
+              </div>
+              <div className="fc-node ellipse" style={{ gridColumn: 3, gridRow: 3, height: '80px' }}>
+                <div className="fc-node-title" style={{ fontSize: '0.85rem' }}>Google Gemini API</div>
+              </div>
+              <div className="fc-arrow left" style={{ gridColumn: 4, gridRow: 3 }}>
+                <div className="fc-arrow-line"></div>
+              </div>
+              <div className="fc-node rect" style={{ gridColumn: 5, gridRow: 3, alignItems: 'flex-start', paddingLeft: '1rem' }}>
+                <div className="fc-node-title">Translated Dish name</div>
+                <div className="fc-node-list">
+                  1.<br />
+                  2.<br />
+                  3.<br />
+                  .
+                </div>
+              </div>
+
+              {/* ROW 4 */}
+              <div className="fc-arrow down" style={{ gridColumn: 3, gridRow: 4 }}>
+                <div className="fc-arrow-line"></div>
+              </div>
+
+              {/* ROW 5 */}
+              <div className="fc-node rect" style={{ gridColumn: '2 / 5', gridRow: 5, padding: '0.8rem', margin: '0 auto', maxWidth: '300px' }}>
+                <div className="fc-node-title" style={{ fontSize: '0.75rem' }}>Recomended Dishes and Generate Images</div>
+              </div>
             </div>
-          );
-        })}
+          </div>
+        </div>
+
+        {/* COLUMN 2: Gemini API Pipeline */}
+        <div className="arch-col">
+          <h3 className="arch-col-title">Gemini API Pipeline</h3>
+          <div className="fc-container" style={{ padding: '1rem', marginTop: 0 }}>
+            <div className="fc-grid">
+              {/* ROW 1 */}
+              <div className="fc-node rect" style={{ gridColumn: 1, gridRow: 1 }}>
+                <div className="fc-node-title">Menu Card<br/>Image</div>
+              </div>
+              <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 1 }}>
+                <div className="fc-arrow-line"></div>
+              </div>
+              
+              {/* ROW 3 */}
+              <div className="fc-node rect" style={{ gridColumn: 1, gridRow: 3 }}>
+                <div className="fc-node-title">User<br/>Preferences</div>
+              </div>
+              <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 3 }}>
+                <div className="fc-arrow-line"></div>
+              </div>
+              
+              {/* ROW 1 to 3 -> Gemini API */}
+              <div className="fc-node ellipse" style={{ gridColumn: 3, gridRow: '1 / 4', height: '120px', display: 'flex', alignItems: 'center' }}>
+                <div className="fc-node-title" style={{ fontSize: '0.95rem' }}>Google<br/>Gemini<br/>API</div>
+              </div>
+              
+              {/* ROW 2 Arrow from Gemini to Recommended */}
+              <div className="fc-arrow right" style={{ gridColumn: 4, gridRow: 2 }}>
+                <div className="fc-arrow-line"></div>
+              </div>
+              
+              {/* ROW 1 to 3 -> Recommended Dishes */}
+              <div className="fc-node rect" style={{ gridColumn: 5, gridRow: '1 / 4', height: '100%', minHeight: '160px' }}>
+                <div className="fc-node-title">Recomended<br/>Dishes<br/>and<br/>Generate<br/>Images</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

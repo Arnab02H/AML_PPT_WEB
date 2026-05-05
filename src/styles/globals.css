@@ -1088,4 +1088,190 @@ kbd {
     bottom: 4rem; /* Move up above navbar */
     right: 1.5rem;
   }
+  
+  .fc-container {
+    overflow-x: auto;
+    padding: 1rem;
+  }
+  .fc-grid {
+    min-width: 800px;
+  }
+}
+
+/* ── Flowchart Diagram (Slide 5) ──────────────── */
+.fc-container {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  margin-top: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fc-grid {
+  display: grid;
+  grid-template-columns: minmax(60px, 1fr) minmax(30px, 0.5fr) minmax(80px, 1.2fr) minmax(30px, 0.5fr) minmax(80px, 1.2fr);
+  grid-template-rows: auto minmax(30px, auto) auto minmax(30px, auto) auto;
+  gap: 0;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.architecture-split {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.arch-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.arch-col-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-accent2);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.fc-node {
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #f1f5f9;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  z-index: 2;
+}
+
+.fc-node.rect {
+  border-radius: 12px;
+}
+
+.fc-node.ellipse {
+  border-radius: 50%;
+  height: auto;
+  min-width: 110px;
+  padding: 1.25rem 0.5rem;
+}
+
+/* Adjust sizes for smaller split layout */
+.fc-node-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fc-node-list {
+  text-align: left;
+  width: 100%;
+  margin-top: 0.4rem;
+  font-size: 0.7rem;
+  color: #cbd5e1;
+  line-height: 1.2;
+}
+
+.fc-label {
+  position: absolute;
+  font-family: var(--font-main);
+  font-style: italic;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: 1.2;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.fc-arrow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.fc-arrow-line {
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+}
+
+/* right arrow */
+.fc-arrow.right .fc-arrow-line { height: 1px; width: 100%; top: 50%; }
+.fc-arrow.right::after {
+  content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%) rotate(45deg);
+  border-top: 2px solid rgba(255, 255, 255, 0.4); border-right: 2px solid rgba(255, 255, 255, 0.4); width: 6px; height: 6px;
+}
+
+/* left arrow */
+.fc-arrow.left .fc-arrow-line { height: 1px; width: 100%; top: 50%; }
+.fc-arrow.left::after {
+  content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%) rotate(-135deg);
+  border-top: 2px solid rgba(255, 255, 255, 0.4); border-right: 2px solid rgba(255, 255, 255, 0.4); width: 6px; height: 6px;
+}
+
+/* down arrow */
+.fc-arrow.down .fc-arrow-line { width: 1px; height: 100%; left: 50%; }
+.fc-arrow.down::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%) rotate(135deg);
+  border-top: 2px solid rgba(255, 255, 255, 0.4); border-right: 2px solid rgba(255, 255, 255, 0.4); width: 6px; height: 6px;
+}
+
+.fc-label {
+  position: absolute;
+  font-family: var(--font-main);
+  font-style: italic;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.fc-arrow.right .fc-label { top: calc(50% - 1.6rem); }
+.fc-arrow.left .fc-label { top: calc(50% - 1.6rem); }
+.fc-arrow.down .fc-label { 
+  top: 50%; 
+  right: calc(50% + 0.5rem); 
+  transform: translateY(-50%); 
+  text-align: right; 
+  width: max-content; 
+}
+
+.fc-floating-input-label {
+  position: absolute;
+  top: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  font-style: italic;
 }
