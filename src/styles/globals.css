@@ -1,0 +1,1091 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
+
+/* ── Reset & Root ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand palette */
+  --clr-bg:       #0a0d14;
+  --clr-surface:  #111827;
+  --clr-card:     #1a2235;
+  --clr-border:   rgba(255,255,255,0.08);
+
+  --clr-accent1:  #ff6b35;   /* warm orange */
+  --clr-accent2:  #ff9f43;   /* golden amber */
+  --clr-accent3:  #1dd3b0;   /* teal */
+  --clr-accent4:  #a78bfa;   /* soft violet */
+
+  --clr-text:     #f1f5f9;
+  --clr-muted:    #94a3b8;
+  --clr-dim:      #475569;
+
+  /* Gradients */
+  --grad-brand:   linear-gradient(135deg, #ff6b35 0%, #ff9f43 100%);
+  --grad-teal:    linear-gradient(135deg, #1dd3b0 0%, #22d3ee 100%);
+  --grad-violet:  linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  --grad-dark:    linear-gradient(160deg, #111827 0%, #0a0d14 100%);
+
+  /* Spacing */
+  --slide-pad: 3.5rem;
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: var(--font-main);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Presentation Shell ───────────────────────── */
+.presentation {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Slide Base ───────────────────────────────── */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--slide-pad);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(60px);
+}
+
+/* Title slide fills all available space — no padding on the article */
+.slide.slide-type-title {
+  padding: 0;
+}
+
+/* Problem slide needs extra bottom clearance for nav bar */
+.slide.slide-type-problem {
+  padding-bottom: 5rem;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.slide.prev {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+/* ── Ambient Background Blobs ─────────────────── */
+.slide::before, .slide::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+.slide::before {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%);
+  top: -100px; left: -100px;
+}
+.slide::after {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(29,211,176,0.10) 0%, transparent 70%);
+  bottom: -80px; right: -80px;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+/* ── Slide Tag / Badge ────────────────────────── */
+.slide-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-accent2);
+  background: rgba(255,159,67,0.12);
+  border: 1px solid rgba(255,159,67,0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+/* ── Slide Title ──────────────────────────────── */
+.slide-title {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide-title.teal {
+  background: var(--grad-teal);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.slide-subtitle {
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  color: var(--clr-muted);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  max-width: 72ch;
+}
+
+/* ── Highlight Box ────────────────────────────── */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(255,107,53,0.10), rgba(255,159,67,0.06));
+  border: 1px solid rgba(255,107,53,0.30);
+  border-left: 4px solid var(--clr-accent1);
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--clr-text);
+  line-height: 1.6;
+}
+
+/* ── Bullet List ──────────────────────────────── */
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  color: var(--clr-text);
+  line-height: 1.5;
+}
+
+.bullet-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  margin-top: 0.45rem;
+}
+
+/* ── Columns Grid ─────────────────────────────── */
+.columns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  align-content: start;
+}
+
+.col-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 16px;
+  padding: 1.4rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.col-card:hover {
+  border-color: rgba(255,107,53,0.4);
+  transform: translateY(-2px);
+}
+
+.col-card h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent2);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.col-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.col-card ul li {
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.col-card ul li::before {
+  content: '→';
+  color: var(--clr-accent1);
+  font-size: 0.75rem;
+  margin-top: 0.05rem;
+  flex-shrink: 0;
+}
+
+/* ── Title Slide ──────────────────────────────────────────────── */
+.title-slide {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--grad-dark);
+  /* fill the entire slide area */
+  min-height: 100%;
+  width: 100%;
+  padding: 1.5rem var(--slide-pad);
+  gap: 0;
+}
+
+.title-slide .big-icon {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin-bottom: 0.4rem;
+  filter: drop-shadow(0 0 36px rgba(255,107,53,0.6));
+  animation: float 4s ease-in-out infinite;
+  line-height: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* "LinguineAI : Visual Menu…" — full title, one unified gradient */
+.title-slide .main-title {
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  font-weight: 900;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin-bottom: 0;
+  max-width: 24ch;
+  filter: drop-shadow(0 2px 24px rgba(255,107,53,0.25));
+}
+
+/* thin accent line below title */
+.title-meta-divider {
+  width: 64px;
+  height: 3px;
+  background: var(--grad-brand);
+  border-radius: 999px;
+  margin: 0.85rem auto 0.85rem;
+  box-shadow: 0 0 10px rgba(255,107,53,0.5);
+}
+
+.title-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.title-meta span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 12px;
+  padding: 0.55rem 1.4rem;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.title-meta span:hover {
+  background: rgba(255,107,53,0.10);
+  border-color: rgba(255,107,53,0.35);
+}
+
+.title-meta span strong {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin-right: 0.35rem;
+}
+
+
+/* ── Agenda Slide ─────────────────────────────── */
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+  transition: all 0.2s;
+}
+
+.agenda-item:hover {
+  border-color: rgba(29,211,176,0.4);
+  color: var(--clr-text);
+  background: rgba(29,211,176,0.06);
+}
+
+.agenda-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--clr-accent3);
+  background: rgba(29,211,176,0.12);
+  border-radius: 6px;
+  padding: 0.2rem 0.45rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+/* ── Architecture Pipeline ────────────────────── */
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pipeline-step:hover {
+  border-color: rgba(255,107,53,0.4);
+  transform: translateX(4px);
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--clr-accent1);
+  background: rgba(255,107,53,0.12);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  min-width: 1.8rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clr-accent2);
+  min-width: 7rem;
+  flex-shrink: 0;
+}
+
+.step-desc {
+  font-size: 0.82rem;
+  color: var(--clr-muted);
+}
+
+/* ── Results Slide ────────────────────────────── */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.7rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  align-content: start;
+}
+
+.result-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.result-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-dim);
+}
+
+.result-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-detail {
+  font-size: 0.78rem;
+  color: var(--clr-muted);
+}
+
+/* ── Demo Slide ───────────────────────────────── */
+.demo-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex: 1;
+}
+
+.demo-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem;
+}
+
+.demo-step-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.demo-step-text {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  line-height: 1.5;
+}
+
+/* ── Thank You Slide ──────────────────────────── */
+.thankyou-slide {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.thankyou-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.refs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  text-align: left;
+  max-width: 640px;
+  width: 100%;
+}
+
+.ref-item {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--clr-dim);
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+}
+
+/* ── Navigation Bar ───────────────────────────── */
+.nav-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--clr-border);
+  border-radius: 999px;
+  padding: 0.6rem 1.25rem;
+  z-index: 100;
+}
+
+.nav-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-card);
+  color: var(--clr-text);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--clr-accent1);
+  border-color: var(--clr-accent1);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.slide-counter {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--clr-muted);
+  padding: 0 0.5rem;
+  min-width: 4rem;
+  text-align: center;
+}
+
+/* Divider inside nav bar */
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--clr-border);
+  margin: 0 0.25rem;
+}
+
+/* Fullscreen button — slightly teal tint on hover */
+.nav-btn-fs .fs-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.nav-btn-fs:hover:not(:disabled) {
+  background: var(--clr-accent3) !important;
+  border-color: var(--clr-accent3) !important;
+}
+
+/* ── Progress Dots ────────────────────────────── */
+.progress-dots {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--clr-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dot.active {
+  background: var(--clr-accent1);
+  transform: scale(1.5);
+  box-shadow: 0 0 8px var(--clr-accent1);
+}
+
+/* ── URL Bar ──────────────────────────────────── */
+.url-display {
+  position: fixed;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--clr-dim);
+  background: rgba(17,24,39,0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--clr-border);
+  border-radius: 10px;
+  padding: 0.3rem 0.9rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Key hint chips inside the URL bar */
+.key-hints {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.62rem;
+  color: var(--clr-dim);
+  border-left: 1px solid var(--clr-border);
+  padding-left: 0.75rem;
+  opacity: 0.8;
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--clr-accent3);
+  background: rgba(29,211,176,0.10);
+  border: 1px solid rgba(29,211,176,0.25);
+  border-radius: 4px;
+  padding: 0.1rem 0.38rem;
+}
+
+/* ── Slide Number Watermark ───────────────────── */
+.slide-watermark {
+  position: absolute;
+  bottom: var(--slide-pad);
+  right: var(--slide-pad);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--clr-dim);
+  z-index: 2;
+}
+
+/* ── Divider ──────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--clr-border);
+  margin: 0.5rem 0 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Problem Statement Slide — clean, icon-free design
+   ───────────────────────────────────────────────────────── */
+
+/* Root fills the slide column flex */
+.prob-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Header row */
+.prob-head-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.prob-main-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0.15rem 0 0;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.prob-subtitle {
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  color: #64748b;
+  font-weight: 400;
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+
+/* ── 3-column card row ── */
+.prob-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.prob-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-top-width: 3px;
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.prob-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.prob-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.prob-card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  justify-content: space-between;
+  padding-top: 0.25rem;
+}
+
+.prob-card-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: clamp(0.92rem, 1.25vw, 1.08rem);
+  color: #cbd5e1;
+  line-height: 1.55;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.prob-card-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 1.6rem;
+  flex-shrink: 0;
+  margin-top: 0.22rem;
+  opacity: 0.9;
+}
+
+/* ── Full-width Core Problem section ── */
+.prob-core {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: linear-gradient(135deg,
+    rgba(29,211,176,0.08) 0%,
+    rgba(139,92,246,0.06) 100%
+  );
+  border: 1px solid rgba(29,211,176,0.20);
+  border-left: 4px solid var(--clr-accent3);
+  border-radius: 14px;
+  padding: 0.55rem 1rem;
+  /* ensure it doesn't grow beyond what's available */
+  flex-shrink: 0;
+}
+
+.prob-core-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  padding-right: 1.25rem;
+}
+
+.prob-core-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-accent3);
+}
+
+.prob-core-q {
+  font-size: clamp(0.82rem, 1.05vw, 0.92rem);
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* Right: bullet capability list — padding-right stops text running behind progress dots */
+.prob-core-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  padding-right: 2.5rem;
+}
+
+.prob-core-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: clamp(0.78rem, 1vw, 0.86rem);
+  color: #94a3b8;
+  line-height: 1.45;
+}
+
+.prob-core-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clr-accent3);
+  margin-top: 0.42rem;
+  box-shadow: 0 0 6px var(--clr-accent3);
+}
+
+/* ── Solution Goal Slide ──────────────────────── */
+.sol-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sol-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sol-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sol-highlight {
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, rgba(29,211,176,0.08) 0%, rgba(139,92,246,0.06) 100%);
+  border: 1px solid rgba(29,211,176,0.20);
+  border-left: 4px solid var(--clr-accent3);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sol-highlight-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-accent3);
+}
+
+.sol-highlight-text {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.sol-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.sol-steps-heading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent4);
+}
+
+.sol-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  align-content: start;
+}
+
+.sol-step-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sol-step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.sol-step-num {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--clr-accent2);
+  background: rgba(255,159,67,0.1);
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.sol-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sol-step-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.sol-step-desc {
+  font-size: clamp(0.78rem, 1vw, 0.86rem);
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+/* ── Responsive & Mobile Adjustments ──────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --slide-pad: 1.5rem; /* Reduce main slide padding */
+  }
+
+  /* Allow vertical scrolling on slides */
+  .slide {
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Add extra padding at bottom so navbar doesn't cover content when scrolled to bottom */
+    padding-bottom: 6rem !important; 
+    /* Remove min-height/flex restraints if they break scrolling */
+    display: block; 
+  }
+  
+  /* URL Bar adjustments */
+  .url-display {
+    top: 0.5rem;
+    max-width: calc(100vw - 1rem);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .key-hints {
+    display: none; /* Hide keyboard hints on mobile */
+  }
+  
+  /* Nav Bar adjustments */
+  .nav-container {
+    bottom: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  /* Problem Slide adjustments */
+  .prob-cards-row {
+    grid-template-columns: 1fr; /* Stack columns */
+    display: flex;
+    flex-direction: column;
+  }
+  .prob-core {
+    grid-template-columns: 1fr; /* Stack core problem */
+  }
+  .prob-core-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-right: 0;
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .prob-root {
+    display: block; /* Disable flex column restraints for natural scrolling */
+  }
+  .prob-main-title {
+    font-size: 1.8rem;
+  }
+  
+  /* Solution Slide adjustments */
+  .sol-root {
+    display: block; /* Disable flex column restraints for natural scrolling */
+  }
+  .sol-steps-grid {
+    grid-template-columns: 1fr; /* Stack step cards */
+    padding-right: 0;
+    overflow-y: visible; /* Let the slide handle the scrolling */
+  }
+  .sol-title {
+    font-size: 1.8rem;
+  }
+  
+  /* Title Slide adjustments */
+  .title-content {
+    padding: 1.5rem;
+  }
+  .title-main {
+    font-size: 2rem;
+  }
+  
+  /* General Flex rows */
+  .agenda-cols, .arch-cols, .method-cols, .results-cols {
+    flex-direction: column !important;
+  }
+  
+  .slide-watermark {
+    bottom: 4rem; /* Move up above navbar */
+    right: 1.5rem;
+  }
+}
