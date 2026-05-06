@@ -1275,3 +1275,481 @@ kbd {
   color: #cbd5e1;
   font-style: italic;
 }
+
+/* ── CRNN + CTC Math Slide ──────────────────────── */
+.crnn-ctc-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.crnn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.crnn-title-area {
+  flex: 1;
+}
+
+.crnn-goal-text {
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+.crnn-goal-text strong {
+  color: var(--clr-accent3);
+}
+
+.crnn-body {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Left Panel (Fixed Diagram) ── */
+.crnn-left-panel {
+  flex: 0 0 380px;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: 16px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.crnn-panel-title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clr-accent2);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--clr-border);
+  padding-bottom: 0.75rem;
+}
+
+.crnn-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.crnn-flow::-webkit-scrollbar {
+  display: none;
+}
+
+.crnn-arrow {
+  color: var(--clr-dim);
+  font-size: 1rem;
+  margin: 0.15rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.min-flow-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.min-flow-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--clr-accent3);
+}
+
+.min-flow-header {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--clr-accent2);
+  margin-bottom: 0.4rem;
+}
+
+.min-flow-desc {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.72rem;
+  color: var(--clr-muted);
+  line-height: 1.4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.min-flow-desc li::before {
+  content: "•";
+  color: var(--clr-accent1);
+  margin-right: 0.4rem;
+}
+
+.min-flow-step {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  text-align: center;
+  width: 100%;
+  border: 1px solid;
+}
+
+.min-flow-step.raw-input {
+  color: var(--clr-accent3);
+  background: rgba(29, 211, 176, 0.1);
+  border-color: rgba(29, 211, 176, 0.3);
+}
+
+.min-flow-step.final-output {
+  color: var(--clr-accent1);
+  background: rgba(255, 107, 53, 0.1);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+/* ── Right Panel (Scrollable Math Cards) ── */
+.crnn-right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow-y: auto;
+  padding-right: 1rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.crnn-right-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.crnn-math-card {
+  background: linear-gradient(145deg, rgba(26,34,53,0.8), rgba(17,24,39,0.9));
+  border: 1px solid var(--clr-border);
+  border-left: 4px solid var(--clr-accent1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.crnn-math-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  letter-spacing: 0.02em;
+}
+
+.crnn-math-card p {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+  line-height: 1.5;
+}
+
+.crnn-eq-block {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.15rem;
+  color: #e2e8f0;
+  background: rgba(0,0,0,0.3);
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+  margin-top: 0.2rem;
+  letter-spacing: 0.04em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Fractions in Math */
+.flex-frac {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.frac-line {
+  height: 1px;
+  background: #e2e8f0;
+  width: 100%;
+  margin: 0.15rem 0;
+}
+
+.crnn-eq-block sub, .crnn-eq-inline sub {
+  font-size: 0.7em;
+  vertical-align: sub;
+}
+
+.crnn-eq-block sup, .crnn-eq-inline sup {
+  font-size: 0.7em;
+  vertical-align: super;
+}
+
+.crnn-math-card code {
+  font-family: var(--font-mono);
+  background: rgba(255,255,255,0.1);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  color: var(--clr-accent3);
+}
+
+.crnn-insight-box {
+  background: rgba(255, 107, 53, 0.08);
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+}
+
+.crnn-insight-box strong {
+  display: block;
+  color: var(--clr-accent1);
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.crnn-insight-box p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Interactive Math Slide Additions ── */
+.min-flow-card.clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.min-flow-card.clickable:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--clr-accent1);
+  transform: translateX(4px);
+}
+
+.min-flow-card.clickable.active {
+  background: rgba(29, 211, 176, 0.15);
+  border-color: var(--clr-accent3);
+  box-shadow: 0 0 15px rgba(29, 211, 176, 0.2);
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.crnn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.crnn-table th {
+  background: rgba(255,255,255,0.05);
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+  color: var(--clr-accent1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.crnn-table td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  vertical-align: middle;
+}
+
+.crnn-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.crnn-table tbody tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.crnn-table .crnn-eq-inline {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+/* ── Gemini API Pipeline Slide ── */
+.gemini-pipe-slide {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gp-outer-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.gp-inner-border {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255,255,255,0.01);
+}
+
+.gp-grid {
+  display: grid;
+  grid-template-columns: 200px 80px 220px 80px 320px;
+  align-items: center;
+  gap: 0;
+}
+
+.gp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.gp-node {
+  border: 1.5px solid rgba(255,255,255,0.8);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+}
+
+.gp-node-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: white;
+  text-transform: uppercase;
+}
+
+.gp-node.circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+}
+
+.gp-node.user-prefs {
+  text-align: left;
+}
+
+.gp-node-list {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  margin-top: 0.6rem;
+  line-height: 1.5;
+  padding-left: 0.5rem;
+}
+
+.gp-central-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+}
+
+.gp-node.prompt-node {
+  width: 140px;
+  background: rgba(255,255,255,0.02);
+}
+
+.gp-arrow-up-svg {
+  display: flex;
+  justify-content: center;
+  margin: -0.8rem 0;
+  height: 40px;
+}
+
+.gp-connectors {
+  height: 100%;
+  position: relative;
+}
+
+.gp-svg-lines {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gp-node.results-large {
+  padding: 2.5rem 2rem;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(29, 211, 176, 0.05);
+  border-color: var(--clr-accent3);
+}
+
+.results-content {
+  font-size: 1rem;
+  color: white;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.results-and {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--clr-accent2);
+  margin: 0.8rem 0;
+}
+
+.results-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 1.2rem auto;
+  width: 60%;
+}
+
+.results-also {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+}

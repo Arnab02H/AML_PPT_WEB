@@ -10,7 +10,9 @@ export interface SlideData {
     | "methodology"
     | "results"
     | "demo"
-    | "thankyou";
+    | "thankyou"
+    | "ocr-math"
+    | "gemini-pipeline";
   title: string;
   subtitle?: string;
   content?: string[];
@@ -43,11 +45,10 @@ export const slides: SlideData[] = [
     tag: "Overview",
     content: [
       "Problem Statement & Motivation",
-      "Literature Review",
       "System Architecture",
       "Dataset & Preprocessing",
       "OCR & Vision Pipeline",
-      "Recommendation Engine",
+      "Gemini API Pipeline",
       "Implementation & Stack",
       "Results & Evaluation",
       "Demo",
@@ -65,7 +66,6 @@ export const slides: SlideData[] = [
     title: "Problem Statement",
     tag: "The Challenge",
     subtitle: "Travelers and users often face significant difficulty understanding restaurant menus, especially in foreign countries.",
-    // columns = 3 upper cards
     columns: [
       {
         heading: "Real-World Challenge",
@@ -93,9 +93,7 @@ export const slides: SlideData[] = [
         ],
       },
     ],
-    // highlight = core problem question block
     highlight: "How can we build an intelligent system that automatically digitizes menu images, extracts and understands content, translates foreign text, enhances missing information, and provides personalized dish recommendations based on user preferences?",
-    // content = core problem sub-points
     content: [
       "Automatically digitize and process menu images",
       "Extract and understand menu content with OCR",
@@ -104,7 +102,6 @@ export const slides: SlideData[] = [
       "Provide personalized dish recommendations based on user preferences",
     ],
   },
-
 
   // ─── Slide 3: Our Solution Goal ────────────────────────────────
   {
@@ -146,47 +143,9 @@ export const slides: SlideData[] = [
     ],
   },
 
-  // ─── Slide 4: Literature Review ────────────────────────────────
+  // ─── Slide 4: System Architecture ─────────────────────────────
   {
     id: 4,
-    type: "content",
-    title: "Literature Review",
-    tag: "Prior Art",
-    icon: "📚",
-    columns: [
-      {
-        heading: "OCR & Text Detection",
-        items: [
-          "CRAFT (2019) — scene text detection",
-          "PaddleOCR v3 — multilingual OCR",
-          "EasyOCR — 80+ language support",
-          "TrOCR — Transformer-based OCR",
-        ],
-      },
-      {
-        heading: "Menu Understanding",
-        items: [
-          "MenuNET — menu parsing CNN",
-          "EATEN — entity-aware text networks",
-          "LayoutLM — document layout understanding",
-          "Donut — OCR-free document parsing",
-        ],
-      },
-      {
-        heading: "Recommendation",
-        items: [
-          "Collaborative filtering (NCF)",
-          "Content-based via embeddings",
-          "LLM-guided preference elicitation",
-          "GPT-4V multimodal reasoning",
-        ],
-      },
-    ],
-  },
-
-  // ─── Slide 5: System Architecture ─────────────────────────────
-  {
-    id: 5,
     type: "architecture",
     title: "System Architecture",
     tag: "High-Level Design",
@@ -203,9 +162,9 @@ export const slides: SlideData[] = [
     highlight: "7-Stage End-to-End Pipeline",
   },
 
-  // ─── Slide 6: Dataset & Preprocessing ─────────────────────────
+  // ─── Slide 5: Dataset & Preprocessing ─────────────────────────
   {
-    id: 6,
+    id: 5,
     type: "content",
     title: "Dataset & Preprocessing",
     tag: "Data",
@@ -221,65 +180,35 @@ export const slides: SlideData[] = [
     highlight: "~2,400 menu images across 4 languages",
   },
 
-  // ─── Slide 7: OCR & Vision Pipeline ───────────────────────────
+  // ─── Slide 6: OCR & Vision Pipeline ───────────────────────────
+  {
+    id: 6,
+    type: "ocr-math",
+    title: "OCR Pipeline : Mathematical Formulation",
+    tag: "Under the Hood",
+    icon: "🧮",
+  },
+
+  // ─── Slide 7: Gemini API Pipeline ─────────────────────────────
   {
     id: 7,
-    type: "methodology",
-    title: "OCR & Vision Pipeline",
-    tag: "Methodology",
-    icon: "👁️",
-    columns: [
-      {
-        heading: "Stage 1 — Detection",
-        items: [
-          "Input image → ResNet feature extractor",
-          "CRAFT heatmaps for character regions",
-          "Bounding polygon generation",
-          "Non-maximum suppression",
-        ],
-      },
-      {
-        heading: "Stage 2 — Recognition",
-        items: [
-          "Cropped ROIs fed to OCR engine",
-          "EasyOCR: LSTM sequence model",
-          "PaddleOCR: SVTR Transformer head",
-          "Gemini Vision: end-to-end VLM",
-        ],
-      },
-      {
-        heading: "Stage 3 — Fusion",
-        items: [
-          "Confidence-weighted ensemble",
-          "Majority vote across engines",
-          "Post-correction with Gemini LLM",
-          "Structured JSON output",
-        ],
-      },
+    type: "gemini-pipeline",
+    title: "Gemini API Pipeline",
+    tag: "Multi-Stage Intelligence",
+    icon: "✨",
+    content: [
+      "Visual Input Analysis — Direct multimodal menu understanding",
+      "Structured Extraction — Parsing raw visual text into clean JSON data",
+      "Semantic Translation — Intelligent language translation with context",
+      "Knowledge Augmentation — Inferring ingredients and spice levels",
+      "Reasoning-based Recommendation — Mapping dishes to user preferences",
     ],
+    highlight: "End-to-End Multimodal Intelligence via Gemini 1.5 Flash / Pro",
   },
 
-  // ─── Slide 8: Recommendation Engine ───────────────────────────
+  // ─── Slide 8: Implementation & Tech Stack ─────────────────────
   {
     id: 8,
-    type: "methodology",
-    title: "Recommendation Engine",
-    tag: "Methodology",
-    icon: "🤖",
-    content: [
-      "User inputs preferences: cuisine type, dietary needs, spice level",
-      "Dish embeddings generated via Sentence-BERT on descriptions",
-      "Cosine similarity scoring between user profile & dish vectors",
-      "Gemini LLM re-ranks top-10 with natural language reasoning",
-      "Output: ranked list with explanations + allergen warnings",
-      "Feedback loop stores thumbs-up/down for personalisation",
-    ],
-    highlight: "Hybrid: Embedding Similarity + LLM Re-ranking",
-  },
-
-  // ─── Slide 9: Implementation & Tech Stack ─────────────────────
-  {
-    id: 9,
     type: "content",
     title: "Implementation & Tech Stack",
     tag: "Engineering",
@@ -315,9 +244,9 @@ export const slides: SlideData[] = [
     ],
   },
 
-  // ─── Slide 10: Results & Evaluation ───────────────────────────
+  // ─── Slide 9: Results & Evaluation ───────────────────────────
   {
-    id: 10,
+    id: 9,
     type: "results",
     title: "Results & Evaluation",
     tag: "Findings",
@@ -333,9 +262,9 @@ export const slides: SlideData[] = [
     highlight: "Gemini Vision outperforms standalone OCR by 5.5% accuracy",
   },
 
-  // ─── Slide 11: Demo ────────────────────────────────────────────
+  // ─── Slide 10: Demo ────────────────────────────────────────────
   {
-    id: 11,
+    id: 10,
     type: "demo",
     title: "System Demo",
     tag: "Live Preview",
@@ -351,9 +280,9 @@ export const slides: SlideData[] = [
     highlight: "Demo available at localhost:3000 during presentation",
   },
 
-  // ─── Slide 12: Challenges & Limitations ───────────────────────
+  // ─── Slide 11: Challenges & Limitations ───────────────────────
   {
-    id: 12,
+    id: 11,
     type: "content",
     title: "Challenges & Limitations",
     tag: "Honest Assessment",
@@ -368,9 +297,9 @@ export const slides: SlideData[] = [
     ],
   },
 
-  // ─── Slide 13: Future Work ─────────────────────────────────────
+  // ─── Slide 12: Future Work ─────────────────────────────────────
   {
-    id: 13,
+    id: 12,
     type: "content",
     title: "Future Work",
     tag: "Roadmap",
@@ -386,9 +315,9 @@ export const slides: SlideData[] = [
     highlight: "Vision: The Google Lens of Restaurant Menus",
   },
 
-  // ─── Slide 14: Conclusion ─────────────────────────────────────
+  // ─── Slide 13: Conclusion ─────────────────────────────────────
   {
-    id: 14,
+    id: 13,
     type: "content",
     title: "Conclusion",
     tag: "Takeaways",
@@ -404,13 +333,13 @@ export const slides: SlideData[] = [
     ],
   },
 
-  // ─── Slide 15: References & Q&A ───────────────────────────────
+  // ─── Slide 14: References ─────────────────────────────────────
   {
-    id: 15,
-    type: "thankyou",
-    title: "Thank You",
-    subtitle: "Questions & References",
-    icon: "🙏",
+    id: 14,
+    type: "content",
+    title: "References",
+    tag: "Further Reading",
+    icon: "📚",
     content: [
       "Baek et al. (2019) CRAFT — CVPR 2019",
       "Du et al. (2022) PaddleOCR — arXiv:2109.03144",
@@ -419,6 +348,19 @@ export const slides: SlideData[] = [
       "Reimers & Gurevych (2019) Sentence-BERT — EMNLP 2019",
       "He et al. (2017) NCF — WWW 2017",
     ],
-    tag: "CMI · Applied Machine Learning · 2025",
+  },
+
+  // ─── Slide 15: Thank You ──────────────────────────────────────
+  {
+    id: 15,
+    type: "thankyou",
+    title: "Thank You!",
+    subtitle: "Questions? We'd love to hear them.",
+    tag: "The End",
+    icon: "🤝",
+    content: [
+      "Arnab Bera · Anirban Chatterjee",
+      "Nisith Ranjan Hazra · Suvadeep Dutta",
+    ],
   },
 ];

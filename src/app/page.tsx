@@ -61,6 +61,14 @@ export default function PresentationPage() {
         handleNext();
       } else if (e.key === 'ArrowLeft') {
         handlePrev();
+      } else if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch((err) => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+          });
+        } else {
+          document.exitFullscreen();
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
