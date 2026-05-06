@@ -488,6 +488,19 @@ function ThankyouSlide({ slide }: { slide: SlideData }) {
 function OcrMathSlide({ slide }: { slide: SlideData }) {
   const [activeStep, setActiveStep] = React.useState<number | null>(null);
 
+  const handleStepClick = (step: number) => {
+    setActiveStep(activeStep === step ? null : step);
+    // Smooth scroll to math details on mobile
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      setTimeout(() => {
+        document.querySelector('.crnn-right-panel')?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  };
+
   return (
     <div className="crnn-ctc-root">
       {/* ── Header ── */}
@@ -515,7 +528,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 1 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 1 ? null : 1)}
+              onClick={() => handleStepClick(1)}
             >
               <div className="min-flow-header">Step 1: Image Acquisition & Preprocessing</div>
               <ul className="min-flow-desc">
@@ -527,7 +540,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 2 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 2 ? null : 2)}
+              onClick={() => handleStepClick(2)}
             >
               <div className="min-flow-header">Step 2: Feature Extraction with CNN</div>
               <ul className="min-flow-desc">
@@ -540,7 +553,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 3 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 3 ? null : 3)}
+              onClick={() => handleStepClick(3)}
             >
               <div className="min-flow-header">Step 3: Converting CNN Output to Sequence</div>
               <ul className="min-flow-desc">
@@ -553,7 +566,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 4 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 4 ? null : 4)}
+              onClick={() => handleStepClick(4)}
             >
               <div className="min-flow-header">Step 4: Sequence Modeling with BiLSTM</div>
               <ul className="min-flow-desc">
@@ -566,7 +579,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 5 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 5 ? null : 5)}
+              onClick={() => handleStepClick(5)}
             >
               <div className="min-flow-header">Step 5: Output Layer (Softmax)</div>
               <ul className="min-flow-desc">
@@ -579,7 +592,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 6 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 6 ? null : 6)}
+              onClick={() => handleStepClick(6)}
             >
               <div className="min-flow-header">Step 6: Connectionist Temporal Classification (CTC)</div>
               <ul className="min-flow-desc">
@@ -592,7 +605,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 7 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 7 ? null : 7)}
+              onClick={() => handleStepClick(7)}
             >
               <div className="min-flow-header">Step 7: Training Loss</div>
               <ul className="min-flow-desc">
@@ -605,7 +618,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
             
             <div 
               className={`min-flow-card clickable ${activeStep === 8 ? 'active' : ''}`}
-              onClick={() => setActiveStep(activeStep === 8 ? null : 8)}
+              onClick={() => handleStepClick(8)}
             >
               <div className="min-flow-header">Step 8: Inference (Decoding)</div>
               <ul className="min-flow-desc">

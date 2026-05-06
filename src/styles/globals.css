@@ -1084,17 +1084,104 @@ kbd {
     flex-direction: column !important;
   }
   
+  /* Slide watermark adjustments */
   .slide-watermark {
-    bottom: 4rem; /* Move up above navbar */
+    bottom: 4.5rem; 
     right: 1.5rem;
+    font-size: 0.75rem;
+    opacity: 0.6;
   }
-  
-  .fc-container {
-    overflow-x: auto;
+
+  /* Agenda Slide Mobile */
+  .agenda-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .agenda-item {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  /* CRNN + CTC Math Slide Mobile */
+  .crnn-body {
+    flex-direction: column !important;
+    overflow-y: visible !important;
+  }
+  .crnn-left-panel {
+    flex: none !important;
+    width: 100% !important;
+    max-height: none !important;
+    margin-bottom: 2rem;
+  }
+  .crnn-right-panel {
+    width: 100% !important;
+    overflow-y: visible !important;
+    padding-right: 0 !important;
+  }
+  .crnn-math-card {
+    border-left-width: 3px;
     padding: 1rem;
   }
+  .crnn-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .crnn-title-area .slide-title {
+    font-size: 1.6rem;
+  }
+
+  /* Gemini Pipeline Slide Mobile */
+  .gemini-pipe-slide .gp-outer-container {
+    padding: 0.5rem;
+  }
+  .gp-inner-border {
+    padding: 1.5rem 1rem;
+  }
+  .gp-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  .gp-section {
+    width: 100%;
+  }
+  .gp-connectors {
+    display: none !important; /* Hide complex SVG lines on mobile for clarity */
+  }
+  .gp-arrow-up-svg {
+    transform: rotate(0deg); /* Keep it vertical */
+  }
+  .gp-node.circle {
+    width: 100px;
+    height: 100px;
+  }
+  .gp-node.results-large {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  /* Architecture Slide Mobile */
+  .architecture-split {
+    flex-direction: column !important;
+  }
+  .arch-col {
+    width: 100% !important;
+    margin-bottom: 2rem;
+  }
   .fc-grid {
-    min-width: 800px;
+    min-width: unset !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  .fc-arrow { display: none !important; }
+
+  /* Table responsiveness */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .crnn-table {
+    min-width: 500px;
   }
 }
 
