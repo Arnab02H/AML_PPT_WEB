@@ -521,7 +521,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
       <div className="crnn-body">
         {/* ── LEFT PANEL: Architecture Flow ── */}
         <div className="crnn-left-panel">
-          <h3 className="crnn-panel-title">Complete CRNN + CTC Architecture</h3>
+          <h3 className="crnn-panel-title">Complete OCR Architecture</h3>
           <div className="crnn-flow new-minimalist-flow">
             <div className="min-flow-step raw-input">Raw Input Image</div>
             <div className="crnn-arrow">↓</div>
