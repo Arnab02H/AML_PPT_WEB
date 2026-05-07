@@ -420,25 +420,142 @@ const RESULT_META: { label: string; value: string; detail: string }[] = [
   { label: 'Recommend Precision@5', value: '0.74', detail: 'User study (n=30)' },
 ];
 
+
 function ResultsSlide({ slide }: { slide: SlideData }) {
   return (
-    <>
-      {slide.tag && <div className="slide-tag">{slide.icon} {slide.tag}</div>}
-      <h2 className="slide-title">{slide.title}</h2>
-      <div className="divider" />
-      {slide.highlight && <div className="highlight-box">{slide.highlight}</div>}
-      <div className="results-grid">
-        {RESULT_META.map((r, i) => (
-          <div key={i} className="result-card">
-            <span className="result-label">{r.label}</span>
-            <span className="result-value">{r.value}</span>
-            <span className="result-detail">{r.detail}</span>
+    <div className="formal-results-root">
+      {slide.tag && <div className="slide-tag formal">{slide.icon} {slide.tag}</div>}
+      <h2 className="formal-slide-title">{slide.title}</h2>
+      <div className="formal-divider" />
+
+      <div className="formal-split-view">
+        {/* LEFT COLUMN: Evaluation Methodology */}
+        <div className="formal-col metrics-col">
+          <h3 className="formal-col-heading">I. Evaluation Methodology</h3>
+          
+          <div className="formal-metric-section">
+            <div className="formal-metric-item">
+              <div className="f-metric-head">
+                <span className="f-metric-name">Character Error Rate (CER)</span>
+              </div>
+              <p className="f-metric-desc">Measures the accuracy of OCR output at the individual character level by calculating the Levenshtein distance between prediction and ground truth.</p>
+              <div className="f-metric-body">
+                <div className="f-formula-row">
+                  <span className="f-label">Formula:</span>
+                  <code>CER = (S + D + I) / N</code>
+                </div>
+                <div className="f-notation-row">
+                  <span className="f-label">Notations:</span>
+                  <span className="f-notation-text"><strong>S:</strong> Substitutions | <strong>D:</strong> Deletions | <strong>I:</strong> Insertions | <strong>N:</strong> Total Chars</span>
+                </div>
+                <div className="f-example-row">
+                  <span className="f-label">Example:</span>
+                  <div className="f-ex-path">
+                    <span>"HELLO"</span>
+                    <span className="f-arrow-min">&rarr;</span>
+                    <span>"HELO"</span>
+                    <span className="f-res">CER: <strong>20%</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="formal-metric-item">
+              <div className="f-metric-head">
+                <span className="f-metric-name">Word Error Rate (WER)</span>
+              </div>
+              <p className="f-metric-desc">Evaluates recognition quality at the word level, providing a better measure of readability for menus and sentences.</p>
+              <div className="f-metric-body">
+                <div className="f-formula-row">
+                  <span className="f-label">Formula:</span>
+                  <code>WER = (S + D + I) / N</code>
+                </div>
+                <div className="f-notation-row">
+                  <span className="f-label">Notations:</span>
+                  <span className="f-notation-text"><strong>S:</strong> Word Subs | <strong>D:</strong> Word Del | <strong>I:</strong> Word Ins | <strong>N:</strong> Total Words</span>
+                </div>
+                <div className="f-example-row">
+                  <span className="f-label">Example:</span>
+                  <div className="f-ex-path">
+                    <span>"I love ML"</span>
+                    <span className="f-arrow-min">&rarr;</span>
+                    <span>"I like ML"</span>
+                    <span className="f-res">WER: <strong>25%</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        ))}
+        </div>
+
+
+        {/* RIGHT COLUMN: Benchmarking Results */}
+        <div className="formal-col results-col">
+          <h3 className="formal-col-heading">II. Benchmarking & Results</h3>
+          
+          <div className="formal-table-wrapper">
+            <table className="formal-results-table">
+              <thead>
+                <tr>
+                  <th>Model / Metric</th>
+                  <th>Accuracy</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>EasyOCR</td>
+                  <td className="accent-val">54%</td>
+                  <td>Character-level</td>
+                </tr>
+                <tr>
+                  <td>PaddleOCR</td>
+                  <td className="accent-val">57%</td>
+                  <td>Standard benchmark</td>
+                </tr>
+                <tr className="highlight-row">
+                  <td><strong>Gemini API</strong></td>
+                  <td className="accent-val highlight"><strong>98%</strong></td>
+                  <td><strong>VLM Multi-modal</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="formal-summary-box">
+            <h4 className="f-sum-title">Key Performance Indicators</h4>
+            <div className="f-sum-grid">
+              <div className="f-sum-item">
+                <span className="f-sum-label">Parse F1</span>
+                <span className="f-sum-val">0.891</span>
+              </div>
+              <div className="f-sum-item">
+                <span className="f-sum-label">BLEU Score</span>
+                <span className="f-sum-val">38.4</span>
+              </div>
+              <div className="f-sum-item">
+                <span className="f-sum-label">Latency</span>
+                <span className="f-sum-val">3.2s</span>
+              </div>
+              <div className="f-sum-item">
+                <span className="f-sum-label">Precision@5</span>
+                <span className="f-sum-val">0.74</span>
+              </div>
+            </div>
+          </div>
+          
+          {slide.highlight && (
+            <div className="formal-conclusion">
+              <strong>Conclusion:</strong> {slide.highlight}
+            </div>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
+
+
 
 /* ── Demo Slide ──────────────────────────────── */
 function DemoSlide({ slide }: { slide: SlideData }) {
@@ -1169,7 +1286,7 @@ function GeminiPipelineSlide({ slide }: { slide: SlideData }) {
             {/* CONNECTORS: Center to Right */}
             <div className="gp-connectors gp-center-to-right">
               <svg className="gp-svg-lines" style={{ overflow: 'visible' }}>
-                <line x1="-5%" y1="50%" x2="100%" y2="50%" stroke="white" strokeWidth="2" marker-end="url(#arrowhead)" />
+                <line x1="-5%" y1="50%" x2="100%" y2="50%" stroke="white" strokeWidth="2" markerEnd="url(#arrowhead)" />
               </svg>
             </div>
 

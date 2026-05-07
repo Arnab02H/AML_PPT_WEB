@@ -1840,3 +1840,238 @@ kbd {
   font-size: 0.9rem;
   color: var(--clr-muted);
 }
+/* ── Formal Academic Results View ── */
+.formal-results-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.formal-slide-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--clr-text);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.formal-divider {
+  height: 2px;
+  background: linear-gradient(to right, var(--clr-accent1), transparent);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.formal-split-view {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.formal-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.formal-col-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--clr-accent2);
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--clr-accent1);
+  padding-left: 1rem;
+}
+
+/* Methodology Section */
+.formal-metric-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formal-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.f-metric-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.f-metric-desc {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  line-height: 1.4;
+  margin-top: -0.25rem;
+  max-width: 45ch;
+}
+
+.f-metric-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--clr-border);
+  margin-top: 0.5rem;
+}
+
+.f-formula-row, .f-notation-row, .f-example-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+}
+
+.f-notation-text {
+  font-size: 0.75rem;
+  color: var(--clr-dim);
+}
+
+.f-notation-text strong {
+  color: var(--clr-muted);
+}
+
+.f-label {
+  font-weight: 600;
+  color: var(--clr-dim);
+  min-width: 4.5rem;
+}
+
+.f-metric-body code {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  color: var(--clr-accent3);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.f-ex-path {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-text);
+}
+
+.f-arrow-min {
+  color: var(--clr-dim);
+  font-size: 0.75rem;
+}
+
+.f-res {
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 4px;
+  color: var(--clr-accent1);
+}
+
+/* Results Table */
+.formal-table-wrapper {
+  margin-bottom: 2rem;
+}
+
+.formal-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.formal-results-table th {
+  text-align: left;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--clr-dim);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--clr-border);
+}
+
+.formal-results-table td {
+  padding: 1.1rem 1rem;
+  border-bottom: 1px solid var(--clr-border);
+  color: var(--clr-text);
+}
+
+.formal-results-table .accent-val {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--clr-accent3);
+}
+
+.highlight-row {
+  background: rgba(29, 211, 176, 0.05);
+}
+
+.accent-val.highlight {
+  color: var(--clr-accent3);
+  font-size: 1.1rem;
+}
+
+/* Summary Grid */
+.formal-summary-box {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.f-sum-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-dim);
+  margin-bottom: 1.25rem;
+}
+
+.f-sum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.f-sum-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.f-sum-label {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+}
+
+.f-sum-val {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  font-family: var(--font-mono);
+}
+
+.formal-conclusion {
+  padding: 1.25rem;
+  background: rgba(255, 159, 67, 0.05);
+  border-left: 4px solid var(--clr-accent2);
+  font-size: 0.95rem;
+  color: var(--clr-text);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .formal-split-view {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    overflow-y: auto;
+  }
+}
