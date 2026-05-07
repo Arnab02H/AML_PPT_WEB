@@ -302,7 +302,7 @@ export const slides: SlideData[] = [
     tag: "Findings",
     icon: "📊",
     content: [
-      "OCR Character Accuracy — EasyOCR: 84.2% | PaddleOCR: 87.6% | Gemini: 93.1%",
+      "OCR Character Accuracy — EasyOCR: 84.2% | PaddleOCR: 87.6% | Gemini: 99.0%",
       "End-to-end Menu Parse F1 — Gemini pipeline: 0.891",
       "Translation BLEU Score — avg 38.4 across 4 language pairs",
       "Recommendation Precision@5 — 0.74 (user study, n=30)",
@@ -397,16 +397,15 @@ export const slides: SlideData[] = [
     id: 13,
     type: "content",
     title: "Conclusion",
-    tag: "Takeaways",
+    tag: "Summary",
     icon: "✅",
-    highlight:
-      "LinguineAI successfully demonstrates that modern VLMs and OCR engines can be combined into a unified pipeline to break language barriers in dining.",
+    highlight: "LinguineAI establishes a strong foundation for a production-ready intelligent food menu analysis platform.",
     content: [
-      "Achieved 93.1% OCR accuracy with Gemini Vision on menu images",
-      "Delivered a full-stack, deployable web application",
-      "Hybrid recommendation system with satisfying user study results",
-      "Modular architecture allows easy swap of OCR / LLM backends",
-      "Lays groundwork for a production-ready food-tech product",
+      "Achieved 99% OCR accuracy using Gemini API Vision on multilingual and complex menu images.",
+      "Successfully developed a full-stack deployable web application capable of menu understanding, translation, and intelligent dish recommendation.",
+      "Designed a modular and scalable architecture, allowing easy integration or replacement of OCR models and LLM backends such as PaddleOCR, EasyOCR, and Gemini Vision.",
+      "The proposed system demonstrates strong potential for real-world food-tech applications, including smart restaurant assistants, multilingual menu understanding, and AI-powered food recommendation systems.",
+      "This work establishes a strong foundation for building a production-ready intelligent food menu analysis platform with future integration into food delivery ecosystems and mobile applications.",
     ],
   },
 
