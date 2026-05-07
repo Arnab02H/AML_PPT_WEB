@@ -58,7 +58,6 @@ export const slides: SlideData[] = [
       "Challenges & Limitations",
       "Future Work",
       "Conclusion",
-      "References",
     ],
   },
 
@@ -409,26 +408,9 @@ export const slides: SlideData[] = [
     ],
   },
 
-  // ─── Slide 14: References ─────────────────────────────────────
+  // ─── Slide 14: Thank You ──────────────────────────────────────
   {
     id: 14,
-    type: "content",
-    title: "References",
-    tag: "Further Reading",
-    icon: "📚",
-    content: [
-      "Baek et al. (2019) CRAFT — CVPR 2019",
-      "Du et al. (2022) PaddleOCR — arXiv:2109.03144",
-      "JaidedAI EasyOCR — github.com/JaidedAI/EasyOCR",
-      "Google Gemini API — ai.google.dev",
-      "Reimers & Gurevych (2019) Sentence-BERT — EMNLP 2019",
-      "He et al. (2017) NCF — WWW 2017",
-    ],
-  },
-
-  // ─── Slide 15: Thank You ──────────────────────────────────────
-  {
-    id: 15,
     type: "thankyou",
     title: "Thank You!",
     subtitle: "Questions? We'd love to hear them.",

@@ -21,7 +21,7 @@ export default function Slide({ slide, isActive, isPrev }: Props) {
   return (
     <article id={`slide-${slide.id}`} className={cls} aria-hidden={!isActive}>
       {renderContent(slide)}
-      <span className="slide-watermark">{slide.id + 1} / 16</span>
+      <span className="slide-watermark">{slide.id + 1} / 15</span>
     </article>
   );
 }
