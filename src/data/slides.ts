@@ -1,23 +1,26 @@
 export interface SlideData {
   id: number;
   type:
-    | "title"
-    | "agenda"
-    | "content"
-    | "problem"
-    | "solution"
-    | "architecture"
-    | "methodology"
-    | "results"
-    | "demo"
-    | "thankyou"
-    | "ocr-math"
-    | "gemini-pipeline";
+  | "title"
+  | "agenda"
+  | "content"
+  | "problem"
+  | "solution"
+  | "architecture"
+  | "methodology"
+  | "results"
+  | "demo"
+  | "thankyou"
+  | "ocr-math"
+  | "gemini-pipeline"
+  | "dataset-example";
   title: string;
   subtitle?: string;
   content?: string[];
   columns?: { heading: string; items: string[] }[];
   steps?: { title: string; desc: string }[];
+  image?: string;
+  table?: string;
   highlight?: string;
   icon?: string;
   tag?: string;
@@ -165,19 +168,66 @@ export const slides: SlideData[] = [
   // ─── Slide 5: Dataset & Preprocessing ─────────────────────────
   {
     id: 5,
-    type: "content",
+    type: "dataset-example",
     title: "Dataset & Preprocessing",
-    tag: "Data",
+    tag: "Methodology",
     icon: "🗄️",
-    content: [
-      "Custom scraped restaurant menu images (Bengali, Hindi, Chinese, English)",
-      "Augmented with rotations, blur, and compression artefacts",
-      "Bounding-box annotations for text region evaluation",
-      "Image preprocessing: grayscale normalisation, CLAHE, deskew",
-      "Text cleaning: remove noise tokens, standardise currency symbols",
-      "Train / Val / Test split: 70 / 15 / 15",
+    columns: [
+      {
+        heading: "Collection",
+        items: [
+          "Custom restaurant menu images were collected and scraped from the web.",
+          "Ground truth annotations were prepared for each image to evaluate OCR performance.",
+        ],
+      },
+      {
+        heading: "Augmentation",
+        items: [
+          "Image rotation & Blur addition",
+          "Compression artefacts",
+          "Brightness and noise variations",
+          "Objective: Improved robustness for real-world menu images.",
+        ],
+      },
+      {
+        heading: "Preprocessing",
+        items: [
+          "Grayscale conversion",
+          "Image normalization",
+          "Contrast enhancement",
+          "Noise reduction",
+          "Effect: Improved text visibility and OCR accuracy.",
+        ],
+      },
     ],
-    highlight: "~2,400 menu images across 4 languages",
+    image: "/dataset-example.png",
+    table: `| Dish Name           | Half | Full |
+| ------------------- | ---: | ---: |
+| Chicken Tikka       |  120 |  200 |
+| Mutton Seekh        |  120 |  200 |
+| Tandoori Chicken    |  225 |  450 |
+| Chicken Kebab       |   90 |  150 |
+| Paneer Tikka        |  100 |  190 |
+| Tandoori Aloo       |   60 |  100 |
+| Tandoori Pampret     |  180 |  250 |
+| Malai Soya Chaap    |  100 |  190 |
+| Tandoori Soya Chaap |   90 |  180 |
+
+| Dish Name           | Price |
+| ------------------- | ----: |
+| Dal Tadka           |    60 |
+| Dal Makhani         |    80 |
+| Kadhai Paneer       |    80 |
+| Pindi Chole         |    80 |
+| Paneer Makhani      |    80 |
+| Paneer Tikka Masala |    80 |
+| Palak Paneer        |    80 |
+| Tawa Paneer         |    80 |
+| Mix Veg             |    80 |
+| Dal Fry             |    70 |
+| Tawa Mushroom       |    90 |
+| Mattar Paneer       |    90 |
+| Aloo Gobi Matar     |    90 |`,
   },
 
   // ─── Slide 6: OCR & Vision Pipeline ───────────────────────────

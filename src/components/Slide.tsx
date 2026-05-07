@@ -50,9 +50,195 @@ function renderContent(slide: SlideData) {
       return <OcrMathSlide slide={slide} />;
     case 'gemini-pipeline':
       return <GeminiPipelineSlide slide={slide} />;
+    case 'dataset-example':
+      return <DatasetExampleSlide slide={slide} />;
     default:
       return <ContentSlide slide={slide} />;
   }
+}
+
+/* ── Dataset Example Slide (Single-Screen Dashboard) ── */
+function DatasetExampleSlide({ slide }: { slide: SlideData }) {
+  // Helper to parse the ASCII/Markdown table into rows for a real HTML table
+  const parseTable = (tableStr: string) => {
+    if (!tableStr) return { headers: [], rows: [] };
+    const lines = tableStr.trim().split('\n');
+    const rows = lines
+      .filter(l => l.includes('|') && !l.includes('---'))
+      .map(l => l.split('|').filter(c => c.trim() !== '').map(c => c.trim()));
+    
+    if (rows.length === 0) return { headers: [], rows: [] };
+    const headers = rows[0];
+    const dataRows = rows.slice(1).filter(r => r[0] !== 'Dish Name' && r[0] !== '');
+    return { headers, rows: dataRows };
+  };
+
+  const { headers, rows } = parseTable(slide.table || '');
+
+  return (
+    <div className="dataset-modern-root" style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      height: '100%', 
+      width: '100%',
+      overflow: 'hidden',
+      padding: '0.75rem 1.5rem 2rem',
+      background: 'radial-gradient(circle at 50% 50%, #0d1117 0%, #05070a 100%)'
+    }}>
+      {/* Header Area */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+        <div>
+          <div className="slide-tag" style={{ background: 'rgba(0, 255, 255, 0.1)', color: 'var(--clr-accent1)', border: '1px solid var(--clr-accent1)', padding: '0.1rem 0.6rem', borderRadius: '20px', fontSize: '0.65rem', display: 'inline-block', marginBottom: '0.25rem' }}>
+            {slide.icon} {slide.tag}
+          </div>
+          <h2 className="slide-title" style={{ margin: 0, fontSize: '1.6rem', background: 'linear-gradient(90deg, #fff, var(--clr-accent1))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            {slide.title}
+          </h2>
+        </div>
+      </div>
+      
+      {/* Immersive Dashboard Grid (No Scroll) */}
+      <div className="dashboard-grid-modern" style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(3, 1fr)', 
+        gap: '0.75rem', 
+        flex: 1, 
+        minHeight: 0,
+        width: '100%',
+        overflow: 'hidden'
+      }}>
+        
+        {/* PANEL 1: Methodology (Compressed) */}
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.03)', 
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)', 
+          borderRadius: '12px', 
+          padding: '1rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+          overflow: 'hidden'
+        }}>
+          <h3 style={{ fontSize: '0.85rem', color: 'var(--clr-accent2)', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.4rem' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--clr-accent2)' }}></span>
+            Methodology
+          </h3>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.5rem', overflow: 'hidden' }}>
+            {slide.columns?.map((col, ci) => (
+              <div key={ci} style={{ 
+                background: 'rgba(255, 255, 255, 0.02)', 
+                border: '1px solid rgba(255,255,255,0.05)', 
+                borderRadius: '8px', 
+                padding: '0.6rem 0.8rem' 
+              }}>
+                <h4 style={{ fontSize: '0.75rem', color: 'var(--clr-accent2)', marginBottom: '0.25rem', fontWeight: '600' }}>{col.heading}</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
+                  {col.items.map((item, ii) => (
+                    <li key={ii} style={{ fontSize: '0.75rem', color: 'var(--clr-text)', opacity: 0.8, lineHeight: 1.25, display: 'flex', gap: '0.4rem' }}>
+                      <span style={{ color: 'var(--clr-accent1)' }}>▶</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* PANEL 2: Visual Evidence (Compressed) */}
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.03)', 
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)', 
+          borderRadius: '12px', 
+          padding: '1rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+          overflow: 'hidden'
+        }}>
+          <h3 style={{ fontSize: '0.85rem', color: 'var(--clr-accent1)', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.4rem' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--clr-accent1)' }}></span>
+            Raw Input
+          </h3>
+          <div style={{ 
+            flex: 1, 
+            background: 'rgba(0,0,0,0.3)', 
+            borderRadius: '10px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            overflow: 'hidden',
+            padding: '1rem',
+            position: 'relative'
+          }}>
+            <img 
+              src={slide.image || '/dataset-example.png'} 
+              alt="Menu" 
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: '4px', boxShadow: '0 10px 40px rgba(0,0,0,0.7)' }}
+            />
+          </div>
+        </div>
+
+        {/* PANEL 3: Ground Truth (Compressed) */}
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.03)', 
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)', 
+          borderRadius: '12px', 
+          padding: '1rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+          overflow: 'hidden'
+        }}>
+          <h3 style={{ fontSize: '0.85rem', color: 'var(--clr-accent3)', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.4rem' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--clr-accent3)' }}></span>
+            Ground Truth
+          </h3>
+          <div style={{ 
+            flex: 1, 
+            background: 'rgba(0,0,0,0.2)', 
+            borderRadius: '10px', 
+            overflow: 'hidden'
+          }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)' }}>
+              <thead style={{ background: '#0d1117' }}>
+                <tr>
+                  {headers.map((h, i) => (
+                    <th key={i} style={{ 
+                      padding: '0.4rem 0.75rem', 
+                      textAlign: i === 0 ? 'left' : 'right', 
+                      fontSize: '0.7rem', 
+                      color: 'var(--clr-accent3)', 
+                      borderBottom: '1px solid rgba(255,255,255,0.1)',
+                      textTransform: 'uppercase'
+                    }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row, ri) => (
+                  <tr key={ri} style={{ background: ri % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                    {row.map((cell, ci) => (
+                      <td key={ci} style={{ 
+                        padding: '1px 0.75rem', 
+                        fontSize: '0.72rem', 
+                        color: ci === 0 ? '#fff' : 'var(--clr-accent3)', 
+                        textAlign: ci === 0 ? 'left' : 'right',
+                        borderBottom: '1px solid rgba(255,255,255,0.01)'
+                      }}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 }
 
 /* ── Title Slide ─────────────────────────────── */
@@ -266,7 +452,7 @@ function ArchitectureSlide({ slide }: { slide: SlideData }) {
     <>
       {slide.tag && <div className="slide-tag">🏗️ {slide.tag}</div>}
       <h2 className="slide-title teal">{slide.title}</h2>
-      
+
       <div className="architecture-split">
         {/* COLUMN 1: OCR Pipeline */}
         <div className="arch-col">
@@ -279,14 +465,14 @@ function ArchitectureSlide({ slide }: { slide: SlideData }) {
                 <div className="fc-node-title">Image</div>
               </div>
               <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 1 }}>
-                <span className="fc-label" style={{ top: '-1.8rem', whiteSpace: 'normal', width: '80px', lineHeight: 1.1 }}>preprocessing<br/>on the image</span>
+                <span className="fc-label" style={{ top: '-1.8rem', whiteSpace: 'normal', width: '80px', lineHeight: 1.1 }}>preprocessing<br />on the image</span>
                 <div className="fc-arrow-line"></div>
               </div>
               <div className="fc-node rect" style={{ gridColumn: 3, gridRow: 1 }}>
                 <div className="fc-node-title">Preprocessed<br />Image</div>
               </div>
               <div className="fc-arrow right" style={{ gridColumn: 4, gridRow: 1 }}>
-                <span className="fc-label" style={{ top: '-2.4rem', whiteSpace: 'normal', width: '80px', lineHeight: 1.1 }}>it goes to<br/>OCR engine<br/>for text extraction</span>
+                <span className="fc-label" style={{ top: '-2.4rem', whiteSpace: 'normal', width: '80px', lineHeight: 1.1 }}>it goes to<br />OCR engine<br />for text extraction</span>
                 <div className="fc-arrow-line"></div>
               </div>
               <div className="fc-node ellipse" style={{ gridColumn: 5, gridRow: 1 }}>
@@ -342,33 +528,33 @@ function ArchitectureSlide({ slide }: { slide: SlideData }) {
             <div className="fc-grid">
               {/* ROW 1 */}
               <div className="fc-node rect" style={{ gridColumn: 1, gridRow: 1 }}>
-                <div className="fc-node-title">Menu Card<br/>Image</div>
+                <div className="fc-node-title">Menu Card<br />Image</div>
               </div>
               <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 1 }}>
                 <div className="fc-arrow-line"></div>
               </div>
-              
+
               {/* ROW 3 */}
               <div className="fc-node rect" style={{ gridColumn: 1, gridRow: 3 }}>
-                <div className="fc-node-title">User<br/>Preferences</div>
+                <div className="fc-node-title">User<br />Preferences</div>
               </div>
               <div className="fc-arrow right" style={{ gridColumn: 2, gridRow: 3 }}>
                 <div className="fc-arrow-line"></div>
               </div>
-              
+
               {/* ROW 1 to 3 -> Gemini API */}
               <div className="fc-node ellipse" style={{ gridColumn: 3, gridRow: '1 / 4', height: '120px', display: 'flex', alignItems: 'center' }}>
-                <div className="fc-node-title" style={{ fontSize: '0.95rem' }}>Google<br/>Gemini<br/>API</div>
+                <div className="fc-node-title" style={{ fontSize: '0.95rem' }}>Google<br />Gemini<br />API</div>
               </div>
-              
+
               {/* ROW 2 Arrow from Gemini to Recommended */}
               <div className="fc-arrow right" style={{ gridColumn: 4, gridRow: 2 }}>
                 <div className="fc-arrow-line"></div>
               </div>
-              
+
               {/* ROW 1 to 3 -> Recommended Dishes */}
               <div className="fc-node rect" style={{ gridColumn: 5, gridRow: '1 / 4', height: '100%', minHeight: '160px' }}>
-                <div className="fc-node-title">Recomended<br/>Dishes<br/>and<br/>Generate<br/>Images</div>
+                <div className="fc-node-title">Recomended<br />Dishes<br />and<br />Generate<br />Images</div>
               </div>
             </div>
           </div>
@@ -432,7 +618,7 @@ function ResultsSlide({ slide }: { slide: SlideData }) {
         {/* LEFT COLUMN: Evaluation Methodology */}
         <div className="formal-col metrics-col">
           <h3 className="formal-col-heading">I. Evaluation Methodology</h3>
-          
+
           <div className="formal-metric-section">
             <div className="formal-metric-item">
               <div className="f-metric-head">
@@ -492,7 +678,7 @@ function ResultsSlide({ slide }: { slide: SlideData }) {
         {/* RIGHT COLUMN: Benchmarking Results */}
         <div className="formal-col results-col">
           <h3 className="formal-col-heading">II.  Results</h3>
-          
+
           <div className="formal-table-wrapper">
             <table className="formal-results-table">
               <thead>
@@ -522,8 +708,8 @@ function ResultsSlide({ slide }: { slide: SlideData }) {
             </table>
           </div>
 
-         
-          
+
+
           {slide.highlight && (
             <div className="formal-conclusion">
               <strong>Conclusion:</strong> {slide.highlight}
@@ -590,7 +776,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
     // Smooth scroll to math details on mobile
     if (typeof window !== 'undefined' && window.innerWidth <= 768) {
       setTimeout(() => {
-        document.querySelector('.crnn-right-panel')?.scrollIntoView({ 
+        document.querySelector('.crnn-right-panel')?.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
@@ -612,7 +798,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
         </div>
 
       </div>
-      
+
       <div className="divider" style={{ margin: '0.2rem 0 0.5rem' }} />
 
       <div className="crnn-body">
@@ -622,8 +808,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
           <div className="crnn-flow new-minimalist-flow">
             <div className="min-flow-step raw-input">Raw Input Image</div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 1 ? 'active' : ''}`}
               onClick={() => handleStepClick(1)}
             >
@@ -634,8 +820,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 2 ? 'active' : ''}`}
               onClick={() => handleStepClick(2)}
             >
@@ -647,8 +833,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 3 ? 'active' : ''}`}
               onClick={() => handleStepClick(3)}
             >
@@ -660,8 +846,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 4 ? 'active' : ''}`}
               onClick={() => handleStepClick(4)}
             >
@@ -673,8 +859,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 5 ? 'active' : ''}`}
               onClick={() => handleStepClick(5)}
             >
@@ -686,8 +872,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 6 ? 'active' : ''}`}
               onClick={() => handleStepClick(6)}
             >
@@ -699,8 +885,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 7 ? 'active' : ''}`}
               onClick={() => handleStepClick(7)}
             >
@@ -712,8 +898,8 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="min-flow-arrow">↓</div>
-            
-            <div 
+
+            <div
               className={`min-flow-card clickable ${activeStep === 8 ? 'active' : ''}`}
               onClick={() => handleStepClick(8)}
             >
@@ -725,7 +911,7 @@ function OcrMathSlide({ slide }: { slide: SlideData }) {
               </ul>
             </div>
             <div className="crnn-arrow">↓</div>
-            
+
             <div className="min-flow-step final-output">Final Output Text: "Hello World"</div>
           </div>
         </div>
@@ -1232,8 +1418,8 @@ function GeminiPipelineSlide({ slide }: { slide: SlideData }) {
             <div className="gp-connectors gp-left-to-center">
               <svg className="gp-svg-lines" style={{ overflow: 'visible' }}>
                 <defs>
-                  <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                  refX="10" refY="3.5" orient="auto">
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7"
+                    refX="10" refY="3.5" orient="auto">
                     <polygon points="0 0, 10 3.5, 0 7" fill="white" />
                   </marker>
                 </defs>
@@ -1250,7 +1436,7 @@ function GeminiPipelineSlide({ slide }: { slide: SlideData }) {
                 <div className="gp-node circle gemini-api">
                   <div className="gp-node-title">Gemini API</div>
                 </div>
-                
+
                 <div className="gp-arrow-up-svg">
                   <svg width="20" height="40" style={{ overflow: 'visible' }}>
                     <line x1="10" y1="40" x2="10" y2="5" stroke="white" strokeWidth="2" markerEnd="url(#arrowhead)" />
@@ -1276,7 +1462,7 @@ function GeminiPipelineSlide({ slide }: { slide: SlideData }) {
                 <div className="results-content">
                   <p>Translated Dish Names</p>
                   <p className="results-and">and</p>
-                  <p>Recomended Dish name<br />Based on User Preferences</p>
+                  <p>Recommended Dish name<br />Based on User Preferences</p>
                   <div className="results-divider"></div>
                   <p className="results-also">also<br />user can generate dish image</p>
                 </div>
