@@ -259,7 +259,7 @@ export const slides: SlideData[] = [
       "System latency — avg 3.2 s end-to-end on 4G mobile network",
       "User satisfaction (SUS score) — 82/100 (Good)",
     ],
-    highlight: "Gemini Vision outperforms standalone OCR by 5.5% accuracy",
+    highlight: "Compared to EasyOCR and PaddleOCR, Gemini Vision demonstrates stronger OCR and document understanding capabilities.",
   },
 
   // ─── Slide 10: Demo ────────────────────────────────────────────
@@ -285,16 +285,27 @@ export const slides: SlideData[] = [
     id: 11,
     type: "content",
     title: "Challenges & Limitations",
-    tag: "Honest Assessment",
+    tag: "Technical Assessment",
     icon: "⚠️",
-    content: [
-      "Low-resolution or heavily decorated menus degrade OCR accuracy",
-      "Handwritten menus remain a significant open challenge",
-      "Gemini API rate limits affect real-time throughput",
-      "Recommendation cold-start problem for new users",
-      "Limited evaluation dataset size for rare languages",
-      "Price parsing accuracy drops with complex layout menus",
+    columns: [
+      {
+        heading: "Data & Recognition",
+        items: [
+          "Dataset Complexity — Menu variety in fonts, layouts, and multilingual text makes preprocessing difficult.",
+          "OCR Accuracy Constraints — Recognition drops with font variations, lighting, blur, and low resolution.",
+          "Handwritten Challenges — Irregular styles and noisy backgrounds remain a significant hurdle for extraction.",
+        ],
+      },
+      {
+        heading: "Infrastructure & Generation",
+        items: [
+          "API Dependencies — Limitations in request rate, latency, internet dependency, and usage cost constraints.",
+          "Generative Constraints — Dish image generation is computationally expensive, requiring high-end GPUs and memory.",
+          "Real-time Bottlenecks — High computational power needs make real-time generation difficult in low-resource environments.",
+        ],
+      },
     ],
+    highlight: "Achieving high-accuracy VLM results requires overcoming dataset scarcity and hardware bottlenecks.",
   },
 
   // ─── Slide 12: Future Work ─────────────────────────────────────
@@ -304,15 +315,31 @@ export const slides: SlideData[] = [
     title: "Future Work",
     tag: "Roadmap",
     icon: "🚀",
-    content: [
-      "Fine-tune a domain-specific OCR model on menu datasets",
-      "Integrate AR overlay to annotate physical menus in real-time",
-      "Add calorie & nutrition estimation from dish images",
-      "Build collaborative filtering with crowd-sourced ratings",
-      "Support voice-based preference input for accessibility",
-      "Deploy as a cross-platform mobile app (React Native)",
+    columns: [
+      {
+        heading: "Advanced Research",
+        items: [
+          "Transformer-based OCR — Improve accuracy for blurred, low-quality, and complex multilingual menu cards.",
+          "Handwritten Recognition — Extend support for irregular handwriting styles using large-scale VLM datasets.",
+          "Generative Visualization — Integrate Diffusion Models to create realistic dish images for visual-less menus.",
+        ],
+      },
+      {
+        heading: "Ecosystem Integration",
+        items: [
+          "Delivery Platforms — Partner with Zomato/Swiggy for direct ordering and live menu updates.",
+          "Mobile Ecosystem — Develop native Android/iOS apps for instant scanning and smart tourism assistance.",
+        ],
+      },
+      {
+        heading: "Accessibility & Performance",
+        items: [
+          "Edge Deployment — Implement lightweight models for offline usage and low-latency inference on mobile.",
+          "Conversational AI — Add voice assistants for hands-free dish inquiries and pronunciation help.",
+        ],
+      },
     ],
-    highlight: "Vision: The Google Lens of Restaurant Menus",
+    highlight: "Vision: Evolving LinguineAI into a comprehensive AI-powered global dining assistant.",
   },
 
   // ─── Slide 13: Conclusion ─────────────────────────────────────

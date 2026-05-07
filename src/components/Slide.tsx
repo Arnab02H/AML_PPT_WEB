@@ -480,7 +480,7 @@ function ResultsSlide({ slide }: { slide: SlideData }) {
                     <span>"I love ML"</span>
                     <span className="f-arrow-min">&rarr;</span>
                     <span>"I like ML"</span>
-                    <span className="f-res">WER: <strong>25%</strong></span>
+                    <span className="f-res">WER: <strong>33.33%</strong></span>
                   </div>
                 </div>
               </div>
@@ -491,7 +491,7 @@ function ResultsSlide({ slide }: { slide: SlideData }) {
 
         {/* RIGHT COLUMN: Benchmarking Results */}
         <div className="formal-col results-col">
-          <h3 className="formal-col-heading">II. Benchmarking & Results</h3>
+          <h3 className="formal-col-heading">II.  Results</h3>
           
           <div className="formal-table-wrapper">
             <table className="formal-results-table">
@@ -522,27 +522,7 @@ function ResultsSlide({ slide }: { slide: SlideData }) {
             </table>
           </div>
 
-          <div className="formal-summary-box">
-            <h4 className="f-sum-title">Key Performance Indicators</h4>
-            <div className="f-sum-grid">
-              <div className="f-sum-item">
-                <span className="f-sum-label">Parse F1</span>
-                <span className="f-sum-val">0.891</span>
-              </div>
-              <div className="f-sum-item">
-                <span className="f-sum-label">BLEU Score</span>
-                <span className="f-sum-val">38.4</span>
-              </div>
-              <div className="f-sum-item">
-                <span className="f-sum-label">Latency</span>
-                <span className="f-sum-val">3.2s</span>
-              </div>
-              <div className="f-sum-item">
-                <span className="f-sum-label">Precision@5</span>
-                <span className="f-sum-val">0.74</span>
-              </div>
-            </div>
-          </div>
+         
           
           {slide.highlight && (
             <div className="formal-conclusion">

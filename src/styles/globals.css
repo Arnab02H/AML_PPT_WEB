@@ -2075,3 +2075,102 @@ kbd {
     overflow-y: auto;
   }
 }
+
+/* ── Fullscreen Enhancements ─────────────────── */
+/* Scales up the typography and spacing when 'F' is pressed */
+:fullscreen .slide {
+  --slide-pad: 5rem;
+}
+
+:fullscreen .slide-title {
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  margin-bottom: 1.5rem;
+}
+
+:fullscreen .slide-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+}
+
+:fullscreen .bullet-list {
+  gap: 1rem;
+}
+
+:fullscreen .bullet-list li {
+  font-size: 1.25rem;
+}
+
+:fullscreen .bullet-list li::before {
+  width: 10px;
+  height: 10px;
+  margin-top: 0.6rem;
+}
+
+:fullscreen .columns-grid {
+  gap: 2rem;
+}
+
+:fullscreen .col-card {
+  padding: 2.5rem 2rem;
+  gap: 1.5rem;
+}
+
+:fullscreen .col-card h3 {
+  font-size: 1.1rem;
+}
+
+:fullscreen .col-card ul li {
+  font-size: 1.1rem;
+}
+
+/* Results slide specific scaling */
+:fullscreen .formal-split-view {
+  gap: 5rem;
+}
+
+:fullscreen .formal-col-heading {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+:fullscreen .f-metric-name {
+  font-size: 1.5rem;
+}
+
+:fullscreen .f-metric-desc {
+  font-size: 1.1rem;
+  max-width: 55ch;
+}
+
+:fullscreen .f-formula-row, :fullscreen .f-notation-row, :fullscreen .f-example-row {
+  font-size: 1.15rem;
+}
+
+:fullscreen .formal-results-table th {
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+
+:fullscreen .formal-results-table td {
+  font-size: 1.3rem;
+  padding: 1.8rem 1.5rem;
+}
+
+:fullscreen .formal-conclusion {
+  font-size: 1.3rem;
+  padding: 2rem;
+}
+
+/* Title slide scaling */
+:fullscreen .title-slide .main-title {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+}
+
+:fullscreen .title-slide .big-icon {
+  font-size: 5rem;
+}
+
+:fullscreen .title-meta {
+  font-size: 1.2rem;
+  gap: 1rem;
+}

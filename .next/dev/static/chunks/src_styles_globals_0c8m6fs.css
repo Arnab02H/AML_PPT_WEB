@@ -2109,4 +2109,95 @@ kbd {
   }
 }
 
+:fullscreen .slide {
+  --slide-pad: 5rem;
+}
+
+:fullscreen .slide-title {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+}
+
+:fullscreen .slide-subtitle {
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+}
+
+:fullscreen .bullet-list {
+  gap: 1rem;
+}
+
+:fullscreen .bullet-list li {
+  font-size: 1.25rem;
+}
+
+:fullscreen .bullet-list li:before {
+  width: 10px;
+  height: 10px;
+  margin-top: .6rem;
+}
+
+:fullscreen .columns-grid {
+  gap: 2rem;
+}
+
+:fullscreen .col-card {
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+}
+
+:fullscreen .col-card h3, :fullscreen .col-card ul li {
+  font-size: 1.1rem;
+}
+
+:fullscreen .formal-split-view {
+  gap: 5rem;
+}
+
+:fullscreen .formal-col-heading {
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+:fullscreen .f-metric-name {
+  font-size: 1.5rem;
+}
+
+:fullscreen .f-metric-desc {
+  max-width: 55ch;
+  font-size: 1.1rem;
+}
+
+:fullscreen .f-formula-row, :fullscreen .f-notation-row, :fullscreen .f-example-row {
+  font-size: 1.15rem;
+}
+
+:fullscreen .formal-results-table th {
+  padding: 1.5rem;
+  font-size: 1rem;
+}
+
+:fullscreen .formal-results-table td {
+  padding: 1.8rem 1.5rem;
+  font-size: 1.3rem;
+}
+
+:fullscreen .formal-conclusion {
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+
+:fullscreen .title-slide .main-title {
+  font-size: clamp(3.5rem, 6vw, 6rem);
+}
+
+:fullscreen .title-slide .big-icon {
+  font-size: 5rem;
+}
+
+:fullscreen .title-meta {
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
 /*# sourceMappingURL=src_styles_globals_0c8m6fs.css.map*/
